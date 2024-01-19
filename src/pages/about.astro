@@ -1,6 +1,6 @@
 ---
 import '../styles/global.css';
-
+import BaseLayout from '../layouts/BaseLayout.astro';
 const pageTitle = "About who?";
 
 const identity = {
@@ -12,35 +12,23 @@ const identity = {
 
 const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Illustration"];
 
-const happy = false;
-const finished = true;
-const goal = 3;
-
-const skillColor = "blue";
+const skillColor = "#f3f3f3";
 const fontWeight = '300';
 const textCase = 'lowercase';
 
 ---
+<BaseLayout pageTitle={pageTitle}>
 
-<body>
-  <a href="/">Home</a>
-<a href="/about/">About</a>
-<a href="/blog/">Blog</a>
-
-<h1>{pageTitle}</h1>
 <p>My skills are:</p>
 <ul>
   {skills.map((skill) => <li class="skill">{skill}</li>)}
 </ul>
 <style define:vars={{skillColor, fontWeight, textCase}}>
-  h1 {
-    color: #321aea;
-    font-size: 3rem;
-  }
+
   .skill {
     color: var(--skillColor);
     font-weight: var(--fontWeight);
     text-transform: var( --textCase);
   }
 </style>
-</body>
+</BaseLayout>

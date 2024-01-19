@@ -1,0 +1,27 @@
+---
+import type { propsToFilename } from 'astro/assets/utils';
+
+const {url} = Astro.props;
+const {title} = Astro.props;
+const {image} = Astro.props;
+---
+
+  <li>
+    <a href={url}> <image src={image} width=100 height='auto' />{title}</a>
+  </li>
+
+  <style>
+    a {
+      display: flex;
+    
+      flex-direction: column;
+      color: aliceblue;
+    }
+    li {
+      display: flex;
+      margin-top: 20px;
+      width: 250px;
+   
+    }
+
+  </style>
