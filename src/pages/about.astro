@@ -1,4 +1,6 @@
 ---
+import '../styles/global.css';
+import BaseLayout from '../layouts/BaseLayout.astro';
 const pageTitle = "About who?";
 
 const identity = {
@@ -10,33 +12,23 @@ const identity = {
 
 const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Illustration"];
 
-const happy = false;
-const finished = true;
-const goal = 3;
+const skillColor = "#f3f3f3";
+const fontWeight = '300';
+const textCase = 'lowercase';
+
 ---
+<BaseLayout pageTitle={pageTitle}>
 
-<body>
-  <a href="/">Home</a>
-<a href="/about/">About</a>
-<a href="/blog/">Blog</a>
-
-<h1>{pageTitle}</h1>
-<p>Here are a few facts about me:</p>
-<ul>
-  <li>My name is {identity.firstName}.</li>
-  <li>I live in {identity.country} and I work as a {identity.occupation}.</li>
-  {identity.hobbies.length >= 2 &&
-    <li>Two of my hobbies are: {identity.hobbies[0]} and {identity.hobbies[2]}</li>
-  }
-</ul>
 <p>My skills are:</p>
 <ul>
-  {skills.map((skill) => <li>{skill}</li>)}
+  {skills.map((skill) => <li class="skill">{skill}</li>)}
 </ul>
+<style define:vars={{skillColor, fontWeight, textCase}}>
 
-{happy && <p>I am happy to be learning Astro!</p>}
-
-{finished && <p>I finished this tutorial!</p>}
-
-{goal === 3 ? <p>My goal is to finish in 3 days.</p> : <p>My goal is not 3 days.</p>}
-</body>
+  .skill {
+    color: var(--skillColor);
+    font-weight: var(--fontWeight);
+    text-transform: var( --textCase);
+  }
+</style>
+</BaseLayout>
