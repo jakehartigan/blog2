@@ -3,6 +3,16 @@ html {
   font-family: sans-serif;
 }
 
+/* Theme styles */
+html.dark {
+  background-color: #1c1c1c;
+  color: #fff;
+}
+
+.dark .nav-links a {
+  color: #fff;
+}
+
 body {
   color: aliceblue;
   margin: 0 auto;
